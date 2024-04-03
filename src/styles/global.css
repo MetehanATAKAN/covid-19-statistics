@@ -1,0 +1,110 @@
+/* Genel Stil */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: black;
+    background-color: #fbfbfc;
+    text-align: center;
+  }
+  
+  a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  .container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+  }
+  
+  /* Başlık Stilleri */
+  h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  h2 {
+    font-size: 30px;
+    margin-bottom: 15px;
+  }
+  
+  h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  /* Buton Stilleri */
+  .btn {
+    display: inline-block;
+    background: #007bff;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-align: center;
+    text-decoration: none;
+    transition: background 0.3s ease;
+  }
+  
+  .btn:hover {
+    background: #0056b3;
+  }
+  
+  /* Form Stilleri */
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Uyumlu kutu modeli */
+  }
+  
+  textarea {
+    height: 100px;
+  }
+  
+  input[type="submit"] {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  input[type="submit"]:hover {
+    background: #0056b3;
+  }
+  /* Genel tablo stilini tanımlama */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #ccc; /* Tablo kenarlarını oluştur */
+}
+
+/* Tablo başlıkları */
+th {
+  background-color: #f2f2f2; /* Başlık arka plan rengi */
+  color: #333; /* Başlık metin rengi */
+  font-weight: bold; /* Kalın başlık metni */
+  padding: 8px; /* Başlık iç boşluğu */
+  border: 1px solid #ccc; /* Başlık kenarları */
+}
+
+/* Tablo hücreleri */
+td {
+  padding: 8px; /* Hücre iç boşluğu */
+  border: 1px solid #ccc; /* Hücre kenarları */
+}
+
+/* Zebra çizgileri */
+tr:nth-child(even) {
+  background-color: #f9f9f9; /* Çift satırlar için arka plan rengi */
+}

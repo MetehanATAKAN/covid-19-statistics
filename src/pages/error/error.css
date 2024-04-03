@@ -1,0 +1,40 @@
+.error-page {
+    display: grid;
+    place-items: center; /* Hem dikey hem yatay hizalama */
+    height: 100vh; /* Sayfa yüksekliği kadar genişlik */
+    .error-tab {
+        border: 1px solid transparent;
+        width: max-content;
+        padding: 20px;
+        margin: auto;
+        background-color: rgb(220, 217, 217);
+        border-radius: 10px;
+        .status {
+            font-size: 150px;
+            font-weight: bold;
+        }
+        .message {
+            font-weight: 600;
+            font-size: 20px;
+            color: black;
+        }
+        button {
+            background-color: #434141; /* Yeşil */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 10px; /* Köşeleri yuvarla */
+            transition-duration: 0.4s; /* Geçiş süresi */
+            &:hover {
+                background-color: #363535;
+            }
+        }
+    }
+
+}

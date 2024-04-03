@@ -1,0 +1,75 @@
+.covid-country-infos {
+    .country-other-info {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+
+        .country-info {
+            div {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                margin: auto;
+            }
+        }
+    }
+
+    .card {
+        /* border: 1px solid #cbcbcb; */
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 20PX;
+
+        .card-info {
+            display: flex;
+            justify-content: space-between;
+
+            .text {
+                text-align: start;
+            }
+        }
+    }
+}
+
+.switch-container {
+    margin-bottom: 20px;
+    .switch {
+        width: max-content;
+        border: 1px solid #cbcbcb;
+        padding: 5px;
+        border-radius: 20px;
+        margin: auto;
+        .item {
+            cursor: pointer;
+        }
+        .item1 {
+            margin-right: 10px;
+        }
+        .active-item {
+            background-color: aliceblue;
+            border-radius: 20px;
+            padding: 5px;
+        }
+    }
+}
+
+
+@media screen and (max-width: 992px) {
+    .covid-country-infos {
+        .card {
+            .card-info {
+                flex-direction: column;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .covid-country-infos {
+        .country-other-info {
+            grid-template-columns: repeat(1, 1fr);
+            gap: 0;
+        }
+    }
+}
