@@ -1,8 +1,7 @@
-/* Genel Stil */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    color: black;
+    color: #524e4e;
     background-color: #fbfbfc;
     text-align: center;
   }
@@ -22,7 +21,7 @@ body {
     overflow: hidden;
   }
   
-  /* Başlık Stilleri */
+  
   h1 {
     font-size: 36px;
     margin-bottom: 20px;
@@ -38,7 +37,7 @@ body {
     margin-bottom: 10px;
   }
   
-  /* Buton Stilleri */
+  
   .btn {
     display: inline-block;
     background: #007bff;
@@ -63,7 +62,7 @@ body {
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    box-sizing: border-box; /* Uyumlu kutu modeli */
+    box-sizing: border-box; 
   }
   
   textarea {
@@ -82,29 +81,27 @@ body {
   input[type="submit"]:hover {
     background: #0056b3;
   }
-  /* Genel tablo stilini tanımlama */
+  
 table {
   width: 100%;
   border-collapse: collapse;
-  border: 1px solid #ccc; /* Tablo kenarlarını oluştur */
+  border: 1px solid #179dd3; 
 }
 
-/* Tablo başlıkları */
 th {
-  background-color: #f2f2f2; /* Başlık arka plan rengi */
-  color: #333; /* Başlık metin rengi */
-  font-weight: bold; /* Kalın başlık metni */
-  padding: 8px; /* Başlık iç boşluğu */
-  border: 1px solid #ccc; /* Başlık kenarları */
+  background-color: #f2f2f2; 
+  color: #333; 
+  font-weight: bold; 
+  padding: 8px; 
+  border: 1px solid #179dd3; 
 }
 
-/* Tablo hücreleri */
 td {
-  padding: 8px; /* Hücre iç boşluğu */
-  border: 1px solid #ccc; /* Hücre kenarları */
+  padding: 8px; 
+  border: 1px solid #179dd3; 
 }
 
-/* Zebra çizgileri */
+
 tr:nth-child(even) {
-  background-color: #f9f9f9; /* Çift satırlar için arka plan rengi */
+  background-color: #f9f9f9; 
 }

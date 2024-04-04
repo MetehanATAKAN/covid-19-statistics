@@ -63,12 +63,12 @@ const CountryInfo = () => {
             calc: "stringify",
           },
         ],
-        ["Active Per One Million ", data.activePerOneMillion, "#b87333", null],
-        ["Recovered Per One Million", data.recoveredPerOneMillion, "#b87333", null],
-        ["Critical Per One Million", data.criticalPerOneMillion, "#b87333", null],
-        ["Cases Per One Million", data.casesPerOneMillion, "color: #b87333", null],
-        ["Deaths Per One Million", data.deathsPerOneMillion, "color: #b87333", null],
-        ["Tests Per One Million", data.testsPerOneMillion, "color: #b87333", null],
+        ["Active Per One Million ", data.activePerOneMillion, "#179dd3", null],
+        ["Recovered Per One Million", data.recoveredPerOneMillion, "#179dd3", null],
+        ["Critical Per One Million", data.criticalPerOneMillion, "#179dd3", null],
+        ["Cases Per One Million", data.casesPerOneMillion, "color: #179dd3", null],
+        ["Deaths Per One Million", data.deathsPerOneMillion, "color: #179dd3", null],
+        ["Tests Per One Million", data.testsPerOneMillion, "color: #179dd3", null],
       ]);
       setDataPeople([
         [
@@ -82,9 +82,9 @@ const CountryInfo = () => {
             calc: "stringify",
           },
         ],
-        ["One Case Per People ", data.oneCasePerPeople, "#b87333", null],
-        ["One Death Per People", data.oneDeathPerPeople, "#b87333", null],
-        ["One Tes Per People", data.oneTestPerPeople, "#b87333", null]
+        ["One Case Per People ", data.oneCasePerPeople, "#179dd3", null],
+        ["One Death Per People", data.oneDeathPerPeople, "#179dd3", null],
+        ["One Test Per People", data.oneTestPerPeople, "#179dd3", null]
       ])
       setDataToday([
         [
@@ -98,9 +98,9 @@ const CountryInfo = () => {
             calc: "stringify",
           },
         ],
-        ["Today Deaths", data.todayDeaths, "#b87333", null],
-        ["Today Recovered", data.todayRecovered, "#b87333", null],
-        ["Today Cases", data.todayCases, "#b87333", null]
+        ["Today Deaths", data.todayDeaths, "#179dd3", null],
+        ["Today Recovered", data.todayRecovered, "#179dd3", null],
+        ["Today Cases", data.todayCases, "#179dd3", null]
       ])
       setDataTotal([
         [
@@ -114,9 +114,9 @@ const CountryInfo = () => {
             calc: "stringify",
           },
         ],
-        ["Deaths", data.deaths, "#b87333", null],
-        ["Recovered", data.recovered, "#b87333", null],
-        ["Cases", data.cases, "#b87333", null],
+        ["Deaths", data.deaths, "#179dd3", null],
+        ["Recovered", data.recovered, "#179dd3", null],
+        ["Cases", data.cases, "#179dd3", null],
       ])
     }
   }, [data])
@@ -138,7 +138,7 @@ const CountryInfo = () => {
   }, []);
 
   useEffect(() => {
-    setChartWidth(windowWidth * 0.4); // Adjust multiplier as needed
+    setChartWidth(windowWidth * 0.4); 
   }, [windowWidth]);
 
  
@@ -147,50 +147,48 @@ const CountryInfo = () => {
       {
         data && dataMillion.length>0 && (
           <div className='covid-country-infos container'>
-            <div className='country-other-info'>
-              <div className='country-info card'>
-                <div>
-                  <span> <img src={data.countryInfo.flag} alt="flag" width={80} height={50} /> </span>
-                  <span> {`${data.country} - ${data.countryInfo.iso3}`} </span>
-                </div>
-                <div>
-                  <span> Continent </span>
-                  <span> {data.continent} </span>
-                </div>
-                <div>
-                  <span> Population </span>
-                  <span> {data.population} </span>
-                </div>
-                <div>
-                  <span> Latitude </span>
-                  <span> {data.countryInfo.lat} </span>
-                </div>
-                <div>
-                  <span> Longitude </span>
-                  <span> {data.countryInfo.long} </span>
-                </div>
+            <div className='header'>
+              <span className='flag'> <img src={data.countryInfo.flag} alt="flag" width={80} height={50} /> </span>
+              <span className='country-name'> {`${data.country} - ${data.countryInfo.iso3}`} </span>
+            </div>
+
+            <div className='country-information'>
+              <div className='card-info'>
+              <div className='label'>{data.continent}</div>
+                <div className='value'>Continent</div>
               </div>
-              <div className='country-info card'>
-                <h3> General Information </h3>
-              <div>
-                  <span> Tests </span>
-                  <span> {data.tests} </span>
-                </div>
-              <div>
-                  <span> Active </span>
-                  <span> {data.active} </span>
-                </div>
-                <div>
-                  <span> Critical </span>
-                  <span> {data.critical} </span>
-                </div>
-                <div>
-                  <span> Deaths </span>
-                  <span> {data.deaths} </span>
-                </div>
+              <div className='card-info'>
+              <div className='label'>{data.population}</div>
+                <div className='value'>Population</div>
+              </div>
+              <div className='card-info'>
+              <div className='label'>{data.countryInfo.lat}</div>
+                <div className='value'>Latitude</div>
+              </div>
+              <div className='card-info'>
+                <div className='label'>{data.countryInfo.long}</div>
+                <div className='value'>Longitude</div>
               </div>
             </div>
-             
+
+            <div className='country-information'>
+              <div className='card-info'>
+              <div className='label'>{data.tests}</div>
+                <div className='value'>Tests</div>
+              </div>
+              <div className='card-info'>
+              <div className='label'>{data.active}</div>
+                <div className='value'>Active</div>
+              </div>
+              <div className='card-info'>
+              <div className='label'>{data.critical}</div>
+                <div className='value'>Critical</div>
+              </div>
+              <div className='card-info'>
+                <div className='label'>{data.deaths}</div>
+                <div className='value'>Deaths</div>
+              </div>
+            </div>     
             <div className='switch-container'>
               <div className='switch'>
                 <span onClick={()=> setSwitchKey(1)} className={`item1 item ${switchKey === 1 && 'active-item'}`}>Chart</span>

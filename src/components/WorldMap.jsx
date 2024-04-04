@@ -24,7 +24,7 @@ const WorldMap = () => {
     return (
         <>
             <h1> COVID-19 STATISTICS </h1>
-            <div style={{height:'30px'}}> {content} </div>
+            <div style={{height:'30px',color:'#179dd3'}}> {content} </div>
             <div>
                 <ComposableMap
                 width={window.innerWidth}
@@ -39,7 +39,7 @@ const WorldMap = () => {
                             ({ geographies }) =>
                                 geographies.map((geo) => (
                                     <Geography
-                                        stroke='#cbcbcb'
+                                        stroke='#fff'
                                         key={geo.rsmKey}
                                         geography={geo}
                                         onClick={() => handleSelectCountry(geo.properties.name)}
@@ -48,10 +48,15 @@ const WorldMap = () => {
                                             setContent(name);
                                         }}
                                         onMouseLeave={() => setContent('')}
+                                        colorRendering={'red'}
                                         style={{
                                             hover: {
-                                                fill: '#f53',
-                                                outline: 'none'
+                                                fill: '#179dd3',
+                                                outline: 'none',
+                                                cursor:'pointer'
+                                            },
+                                            default:{
+                                                fill:'#83cbe6'
                                             }
                                         }}
                                     />
