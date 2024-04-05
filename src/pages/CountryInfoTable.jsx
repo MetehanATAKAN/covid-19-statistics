@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 const CountryInfoTable = ({data}) => {
-    console.log(data);
+
     const [countryInformation, setCountryInformation] = useState([]);
     
     useEffect(() => {
@@ -28,19 +28,23 @@ const CountryInfoTable = ({data}) => {
   return (
     <div>
         <table>
-            <tr>
+           <thead>
+           <tr>
                 <th>Statistic Name</th>
                 <th>Result</th>
             </tr>
+           </thead>
+           <tbody>
             {
-                countryInformation?.map(item =>(
-                    <tr> 
+                countryInformation?.map((item,index) =>(
+                    <tr key={index}> 
                         <td>{item.label} </td>
                         <td>{item.value} </td>
                     </tr>
                     
                 ))
             }
+            </tbody>
         </table>
     </div>
   )

@@ -1,7 +1,6 @@
-import './App.css';
 import WorldMap from './components/WorldMap';
 
-function App() {
+const App = () => {
   return (
     <div className="container">
      <WorldMap/>

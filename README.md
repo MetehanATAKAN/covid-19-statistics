@@ -1,70 +1,54 @@
-# Getting Started with Create React App
+# Proje Kurulum
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Adım 1 : Öncelikle Projeyi Klonlayın
+https://github.com/MetehanATAKAN/covid-19-statistics.git
 
-## Available Scripts
+## Adım 2 : Proje dizinine gidin
+cd covid-19-statistics
 
-In the project directory, you can run:
+## Adım 3 : Gerekli paketleri yüklemek için aşağıdaki komutu çalıştırın
+npm install
 
-### `npm start`
+## Adım 4 : Kullanım
+npm start
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# React Uygulamasını Dockerize Etme
 
-### `npm test`
+Bu README dosyası, bir React uygulamasını Docker kullanarak nasıl dağıtacağınızı adım adım açıklar. Aşağıdaki adımları izleyerek uygulamanızı Dockerize edebilirsiniz.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Adım 1: Dockerfile Oluşturma
 
-### `npm run build`
+İlk olarak, Dockerfile oluşturmanız gerekmektedir. Dockerfile, Docker imajınızı nasıl oluşturacağınızı tanımlar. Örneğin:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Üretim aşaması
+FROM node:18-alpine as build
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+RUN npm run build
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Nginx web sunucusunu kullanarak uygulamayı dağıtma
+FROM nginx:alpine
+COPY --from=build  /app/build /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
 
-### `npm run eject`
+## Adım 2: Docker İmajını Oluşturma
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Dockerfile'ı oluşturduktan sonra, Docker komutunu kullanarak imajı oluşturabilirsiniz. Aşağıdaki komutu çalıştırarak Docker imajını oluşturabilirsiniz:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+docker build -t covid-react-app .
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+ ## Adım 3: Docker Konteynerini Çalıştırma
+ Docker imajını oluşturduktan sonra, bir Docker konteyneri oluşturarak ve çalıştırarak uygulamanızı dağıtabilirsiniz. Aşağıdaki komutu kullanarak bu adımı tamamlayabilirsiniz:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+ docker run -d -p 4000:80 --name covid-app-docker covid-react-app:latest
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

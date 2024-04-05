@@ -3,9 +3,9 @@ import './loading.css';
 
 const Loading = () => {
   return (
-    <div className="loading-screen">
-    <div className="loading-spinner"></div>
-  </div>
+    <div className="loading-screen" data-testid="loading-spinner">
+      <div className="loading-spinner"></div>
+    </div>
   )
 }
 

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { ComposableMap, Geographies, Geography,Graticule,ZoomableGroup,Sphere  } from 'react-simple-maps';
 import { useDispatch } from 'react-redux';
-import 'react-tooltip/dist/react-tooltip.css'
 import { useNavigate } from 'react-router-dom';
 import { dataSuccess } from '../redux/actions';
 
@@ -30,6 +29,7 @@ const WorldMap = () => {
                 width={window.innerWidth}
                 height={window.innerHeight}
                 projectionConfig={{ scale: 200 }}
+                data-testid="world-map"
                  >
                     <ZoomableGroup center={[0, 0]}>
                     <Sphere stroke="#E4E5E6" strokeWidth={0.5} />
